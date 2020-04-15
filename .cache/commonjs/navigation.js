@@ -31,7 +31,6 @@ var _history = require("@reach/router/lib/history");
 
 var _gatsbyLink = require("gatsby-link");
 
-// Convert to a map for faster lookup in maybeRedirect()
 const redirectMap = _redirects.default.reduce((map, redirect) => {
   map[redirect.fromPath] = redirect;
   return map;

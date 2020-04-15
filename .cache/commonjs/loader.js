@@ -11,9 +11,6 @@ var _emitter = _interopRequireDefault(require("./emitter"));
 
 var _findPath = require("./find-path");
 
-/**
- * Available resource loading statuses
- */
 const PageResourceStatus = {
   /**
    * At least one of critical resources failed to load

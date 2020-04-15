@@ -1,54 +1,61 @@
-// exports.createPages = async ({ graphql, actions }) => {
-//   const { createPage } = actions;
-//   const result = await graphql(`
-//     {
-//       allFile {
-//         edges {
-//           node {
-//             id
-//             body
-//           }
-//         }
-//       }
-//     }
-//   `);
+const path = require('path');
 
-//   if (result.errors) {
-//     throw result.errors;
-//   }
+exports.createPages = async ({ graphql, actions, reporter }) => {
+  const { createPage } = actions;
+  const result = await graphql(`
+    {
+      allMdx {
+        edges {
+          node {
+            id
+            frontmatter {
+              name
+              title
+            }
+            fields {
+              slug
+            }
+            body
+          }
+        }
+      }
+    }
+  `);
 
-//   const pages = result.data.allMdx.edges.map(({ node }) => node);
+  if (result.errors) {
+    reporter.panicOnBuild('🚨  ERROR: Loading "createPages" query');
+    throw result.errors;
+  }
 
-//   pages.forEach((page) => {
-//     const previous = index === pages.length - 1 ? null : pages[index + 1];
-//     const next = index === 0 ? null : pages[index - 1];
-//     createPage({
-//       // path: `/${page.name}`,
-//       component: require.resolve(`${__dirname}/src/templates/page.js`),
-//       context: {
-//         body: page.children.body,
-//         previous,
-//         next,
-//       },
-//     });
-//   });
-// };
+  const pages = result.data.allMdx.edges;
+
+  pages.forEach(({ node: page }, index) => {
+    const previous = index === pages.length - 1 ? null : pages[index + 1];
+    const next = index === 0 ? null : pages[index - 1];
+    createPage({
+      path: `${page.fields.slug}`,
+      component: path.resolve(`./src/templates/page.js`),
+      context: {
+        id: page.id,
+        title: page.frontmatter.title,
+        content: page.body,
+        previous,
+        next,
+      },
+    });
+  });
+};
 
 const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
-  const { internal, componentPath } = node;
-  console.log(internal.type);
-  if (
-    internal.type === 'Mdx'
-    // componentPath &&
-    // componentPath.includes('/content/')
-  ) {
-    const slug = createFilePath({ node, getNode });
+  const { internal } = node;
+  if (internal.type === 'Mdx') {
+    const slug = createFilePath({ node, getNode }); // 根据文件夹名生成slug
     createNodeField({
       node,
       name: `slug`,
-      value: slug,
+      value: `/blog${slug}`,
     });
   }
 };

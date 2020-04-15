@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { preToCodeBlock } from 'mdx-utils';
 import Code from './components/code';
@@ -6,15 +7,13 @@ import Code from './components/code';
 const components = {
   pre: (preProps) => {
     const props = preToCodeBlock(preProps);
-
-    if (props) {
-      return <Code {...props} />;
-    } else {
-      return <pre {...preProps} />;
-    }
+    return props ? <Code {...props} /> : <pre {...preProps} />;
   },
+  Link,
 };
 
-export const wrapRootElement = ({ element }) => (
-  <MDXProvider components={components}>{element}</MDXProvider>
-);
+export const wrapRootElement = (props) => {
+  // console.log(props);
+  const { element } = props;
+  return <MDXProvider components={components}>{element}</MDXProvider>;
+};

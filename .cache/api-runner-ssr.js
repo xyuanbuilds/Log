@@ -1,6 +1,6 @@
 var plugins = [{
       plugin: require('/Users/xuyuan/github/blog/node_modules/gatsby-plugin-mdx/gatsby-ssr'),
-      options: {"plugins":[],"extensions":[".mdx",".md"]},
+      options: {"plugins":[],"extensions":[".mdx",".md"],"defaultLayouts":{}},
     },{
       plugin: require('/Users/xuyuan/github/blog/node_modules/gatsby-plugin-typography/gatsby-ssr'),
       options: {"plugins":[],"pathToConfigModule":"/Users/xuyuan/github/blog/src/utils/typography"},
