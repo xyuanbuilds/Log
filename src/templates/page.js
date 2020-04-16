@@ -6,6 +6,7 @@ import { MDXRenderer } from 'gatsby-plugin-mdx';
 
 // data: pageQuery相关，pageContext: createPage({ context }) 相关
 const Page = ({ pageContext }) => {
+  const { next, previous } = pageContext;
   console.log(pageContext);
   return (
     <Layout>
@@ -14,24 +15,20 @@ const Page = ({ pageContext }) => {
         <MDXRenderer>{pageContext.content}</MDXRenderer>
       </MDXProvider>
       <ul>
-        <li>
-          <Link
-            to={pageContext.next ? pageContext.next.node.fields.slug : null}
-          >
-            下一个
-          </Link>
-        </li>
-        <li>
-          <Link
-            to={
-              pageContext.previous
-                ? pageContext.previous.node.fields.slug
-                : null
-            }
-          >
-            上一个
-          </Link>
-        </li>
+        {previous && (
+          <li>
+            <Link to={previous.node.fields.slug}>
+              上一个: {previous.node.frontmatter.title}
+            </Link>
+          </li>
+        )}
+        {next && (
+          <li>
+            <Link to={next.node.fields.slug}>
+              下一个: {next.node.frontmatter.title}
+            </Link>
+          </li>
+        )}
       </ul>
     </Layout>
   );
