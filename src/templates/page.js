@@ -9,27 +9,30 @@ const Page = ({ pageContext }) => {
   const { next, previous } = pageContext;
   console.log(pageContext);
   return (
-    <Layout>
-      <h1>{pageContext.title}</h1>
+    <Layout
+      title={pageContext.title}
+      aside={
+        <ul>
+          {previous && (
+            <li>
+              <Link to={previous.node.fields.slug}>
+                上一个: {previous.node.frontmatter.title}
+              </Link>
+            </li>
+          )}
+          {next && (
+            <li>
+              <Link to={next.node.fields.slug}>
+                下一个: {next.node.frontmatter.title}
+              </Link>
+            </li>
+          )}
+        </ul>
+      }
+    >
       <MDXProvider>
         <MDXRenderer>{pageContext.content}</MDXRenderer>
       </MDXProvider>
-      <ul>
-        {previous && (
-          <li>
-            <Link to={previous.node.fields.slug}>
-              上一个: {previous.node.frontmatter.title}
-            </Link>
-          </li>
-        )}
-        {next && (
-          <li>
-            <Link to={next.node.fields.slug}>
-              下一个: {next.node.frontmatter.title}
-            </Link>
-          </li>
-        )}
-      </ul>
     </Layout>
   );
 };

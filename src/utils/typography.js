@@ -1,5 +1,6 @@
 import Typography from 'typography';
 import Theme from 'typography-theme-fairy-gates';
+import './global.css';
 
 /**
  * From Ariake Dark -> great VSCode theme
@@ -30,13 +31,31 @@ import Theme from 'typography-theme-fairy-gates';
 // hsl(40,   60%, 70%); // modified
 // hsl(0,    70%, 60%); // removed
 
+const MOBILE_MEDIA_QUERY = '@media only screen and (max-width:480px)';
 Theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
   a: {
-    // color: 'hsl(228, 25%, 42%)',
+    textShadow: 'none',
+    color: 'var(--linkColor)',
+    backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--linkColor) 1px, var(--linkColor) 2px, rgba(0, 0, 0, 0) 2px)`,
+  },
+  blockquote: {
+    borderLeft: `${rhythm(4 / 16)} solid var(--bqBorder)`,
+    color: 'var(--bqColor)',
+    background: 'var(--bqBg)',
+    paddingTop: `${rhythm(4 / 16)}`,
+    paddingBottom: `${rhythm(4 / 16)}`,
+  },
+  [MOBILE_MEDIA_QUERY]: {
+    blockquote: {
+      borderLeft: `${rhythm(3 / 16)} solid var(--bqBorder)`,
+    },
+  },
+  ':not(pre) > code': {
+    padding: `0 ${rhythm(2 / 16)}`,
   },
 });
 
-const typography = new Typography(Theme);
+const typography = new Typography({ ...Theme, headerColor: 'var(--hColor)' });
 
 // Hot reload typography in development.
 if (process.env.NODE_ENV !== 'production') {

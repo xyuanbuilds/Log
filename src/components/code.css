@@ -1,0 +1,35 @@
+/* code */
+pre.code {
+  background-color: var(--preBg);
+  padding: 16px;
+}
+pre::selection {
+  background: inherit;
+  color: inherit;
+}
+:not(pre) > code {
+  border-radius: 0.3em;
+  display: inline-block;
+  background: var(--inlineCodeBg);
+  color: var(--inlineCodeColor);
+  white-space: normal;
+}
+.mac {
+  display: flex;
+  padding-bottom: 0.5em;
+}
+.mac span {
+  width: 0.8em;
+  height: 0.8em;
+  margin-right: 0.6em;
+  border-radius: 50%;
+}
+.mac span:nth-child(1) {
+  background-color: hsl(0, 70%, 60%);
+}
+.mac span:nth-child(2) {
+  background-color: hsl(40, 60%, 70%);
+}
+.mac span:nth-child(3) {
+  background-color: hsl(150, 60%, 54%);
+}
