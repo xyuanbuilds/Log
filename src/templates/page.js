@@ -30,9 +30,11 @@ const Page = ({ pageContext }) => {
         </ul>
       }
     >
-      <MDXProvider>
-        <MDXRenderer>{pageContext.content}</MDXRenderer>
-      </MDXProvider>
+      <>
+        <MDXProvider>
+          <MDXRenderer>{pageContext.content}</MDXRenderer>
+        </MDXProvider>
+      </>
     </Layout>
   );
 };

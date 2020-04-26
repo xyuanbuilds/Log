@@ -1,9 +1,108 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import dark from 'prism-react-renderer/themes/oceanicNext';
-import light from 'prism-react-renderer/themes/github';
+// import light from 'prism-react-renderer/themes/github';
 
 const THEME_MAP = {
-  light,
+  light: {
+    plain: {
+      color: 'hsl(230, 8%, 24%)',
+      backgroundColor: 'hsl(230, 1%, 98%)',
+    },
+    styles: [
+      {
+        types: ['prolog'],
+        style: {
+          color: 'rgb(0, 0, 128)',
+        },
+      },
+      {
+        types: ['comment'],
+        style: {
+          color: 'hsl(230, 4%, 64%)',
+        },
+      },
+      {
+        types: ['builtin', 'changed', 'keyword'],
+        style: {
+          color: 'hsl(301, 63%, 40%)',
+        },
+      },
+      {
+        types: ['number', 'inserted'],
+        style: {
+          color: 'hsl(230, 8%, 15%)',
+        },
+      },
+      {
+        types: ['constant'],
+        style: {
+          color: 'hsl(41, 99%, 30%)',
+        },
+      },
+      {
+        types: ['attr-name', 'variable'],
+        style: {
+          color: 'hsl(5, 74%, 59%);',
+        },
+      },
+      {
+        types: ['deleted', 'string', 'attr-value'],
+        style: {
+          color: 'hsl(119, 34%, 47%)',
+        },
+      },
+      {
+        types: ['selector'],
+        style: {
+          color: 'hsl(301, 63%, 40%)',
+        },
+      },
+      {
+        types: ['tag'],
+        style: {
+          color: 'rgb(78, 201, 176)',
+        },
+      },
+      {
+        types: ['tag'],
+        languages: ['markup'],
+        style: {
+          color: 'hsl(221, 87%, 60%)',
+        },
+      },
+      {
+        types: ['punctuation', 'operator'],
+        style: {
+          color: 'hsl(198, 99%, 37%)',
+        },
+      },
+      {
+        types: ['punctuation'],
+        languages: ['markup'],
+        style: {
+          color: 'hsl(5, 74%, 59%);',
+        },
+      },
+      {
+        types: ['function'],
+        style: {
+          color: 'hsl(221, 87%, 60%)',
+        },
+      },
+      {
+        types: ['class-name'],
+        style: {
+          color: 'hsl(41, 99%, 38%)',
+        },
+      },
+      {
+        types: ['char'],
+        style: {
+          color: 'hsl(230, 12%, 24%)',
+        },
+      },
+    ],
+  },
   dark,
 };
 
@@ -56,7 +155,7 @@ export const useBodyClass = () => {
 };
 
 const useTheme = () => {
-  const [theme, changeTheme] = React.useState(light);
+  const [theme, changeTheme] = React.useState(THEME_MAP.light);
   const cssTheme = useColorSchema();
   const classTheme = useBodyClass();
 

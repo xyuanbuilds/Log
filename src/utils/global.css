@@ -1,30 +1,39 @@
 /* hsl(9, 83%, 67%) */
 /* hsl(147, 32%, 52%) */
+/* hsl(199, 65%, 60%) */
 
 /*系统深浅色匹配*/
 :root {
-  --bg: hsl(60, 100%, 99%);
+  /* --bg: hsl(60, 100%, 99%);
   --fontColor: hsla(0, 0%, 0%, 0.8);
   --hColor: hsla(0, 0%, 0%, 0.9);
   --linkColor: hsl(199, 65%, 60%);
-  /* --bqBorder: hsl(90, 5%, 74%); */
   --bqBorder: hsla(228, 25%, 78%, 0.15);
   --bqColor: rgba(0, 0, 0, 0.6);
   --bqBg: hsl(90, 5%, 74%, 0.1);
   --preBg: hsla(220, 13%, 18%, 1);
-  /* --inlineCodeBg: hsla(41, 9%, 62%, 0.2); */
   --inlineCodeBg: hsla(41, 92%, 76%, 0.3);
-  --inlineCodeColor: hsl(348, 71%, 69%);
+  --inlineCodeColor: hsl(348, 71%, 69%); */
+  --bg: hsl(60, 100%, 99%);
+  --fontColor: hsla(0, 0%, 0%, 0.8);
+  --hColor: hsla(0, 0%, 0%, 0.9);
+  --linkColor: hsl(9, 83%, 67%);
+  --bqBorder: hsla(228, 25%, 78%, 0.15);
+  --bqColor: rgba(0, 0, 0, 0.6);
+  --bqBg: hsl(90, 5%, 74%, 0.1);
+  --preBg: hsla(220, 13%, 18%, 1);
+  --inlineCodeBg: hsl(9, 83%, 87%);
+  --inlineCodeColor: hsl(60, 100%, 98%);
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --fontColor: hsl(228, 25%, 78%);
+    /* --fontColor: hsl(228, 25%, 78%);
     --hColor: hsl(211, 97%, 98%);
     --bqBorder: hsl(22, 75%, 70%);
     --bqColor: hsl(228, 15%, 55%);
     --bg: hsl(228, 13%, 19%);
     --preBg: hsla(220, 13%, 15%, 1);
-    --inlineCodeBg: rgba(115, 124, 153, 0.2);
+    --inlineCodeBg: rgba(115, 124, 153, 0.2); */
   }
 }
 /* global */
@@ -36,27 +45,6 @@ body {
   color: var(--fontColor);
 }
 ::selection {
-  background-color: hsl(356, 94%, 94%);
-  color: hsl(90, 28%, 71%);
+  background-color: hsl(9, 83%, 67%);
+  color: hsl(211, 97%, 98%);
 }
-
-.wrapper {
-  transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
-  min-height: 100vh;
-}
-footer {
-  background-color: hsl(199, 65%, 60%);
-}
-
-/* .button {
-  float: right;
-  width: 50px;
-  height: 50px;
-  border-radius: 15px;
-  box-shadow: 7px 7px 14px #d9d9d5, -7px -7px 14px #ffffff;
-}
-.button.down {
-  border-radius: 15px;
-  background: linear-gradient(145deg, #ffffff, #e6e6e1);
-  box-shadow: 5px 5px 10px #d9d9d5, -5px -5px 10px #ffffff;
-} */

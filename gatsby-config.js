@@ -31,5 +31,15 @@ module.exports = {
         pathToConfigModule: `${__dirname}/src/utils/typography`,
       },
     },
+    /* 图片处理 */
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets/`,
+      },
+    },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
   ],
 };

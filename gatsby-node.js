@@ -44,6 +44,13 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
       },
     });
   });
+  createPage({
+    path: `/`,
+    component: path.resolve(`./src/templates/index.js`),
+    context: {
+      allPages: pages,
+    },
+  });
 };
 
 const { createFilePath } = require(`gatsby-source-filesystem`);

@@ -31,8 +31,13 @@ import './global.css';
 // hsl(40,   60%, 70%); // modified
 // hsl(0,    70%, 60%); // removed
 
+// http://kyleamathews.github.io/typography.js/
 const MOBILE_MEDIA_QUERY = '@media only screen and (max-width:480px)';
-Theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
+Theme.overrideThemeStyles = ({ rhythm, scale }, options, styles) => ({
+  'h1,h2,h3,h4,h5,h6': {
+    marginTop: rhythm(1),
+    marginBottom: rhythm(0.5),
+  },
   a: {
     textShadow: 'none',
     color: 'var(--linkColor)',
@@ -45,9 +50,40 @@ Theme.overrideThemeStyles = ({ rhythm }, options, styles) => ({
     paddingTop: `${rhythm(4 / 16)}`,
     paddingBottom: `${rhythm(4 / 16)}`,
   },
+  '#m-header': {
+    ...scale(-1 / 10),
+  },
+  '#m-index': {
+    ...scale(1 / 10),
+  },
+  '#m-mind': {
+    marginLeft: `auto`,
+    marginRight: `auto`,
+    minHeight: '100vh',
+    maxWidth: rhythm(24),
+    padding: `${rhythm(3 / 8)} ${rhythm(3 / 4)} ${rhythm(1.5)} ${rhythm(
+      3 / 4,
+    )}`,
+  },
+  'main#m-mind > h1': {
+    marginTop: 0,
+  },
+  '#m-brief': {
+    ...scale(-1 / 4),
+    textAlign: 'right',
+    marginTop: `-${rhythm(0.5)}`,
+    marginBottom: rhythm(0.5),
+  },
   [MOBILE_MEDIA_QUERY]: {
     blockquote: {
       borderLeft: `${rhythm(3 / 16)} solid var(--bqBorder)`,
+    },
+    '#m-index': {
+      marginTop: `16px`,
+      paddingBottom: 0,
+    },
+    'main#m-mind': {
+      paddingTop: `8px`,
     },
   },
   ':not(pre) > code': {
