@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import { MDXProvider } from '@mdx-js/react';
 import { preToCodeBlock } from 'mdx-utils';
-import Code from './components/code';
+import Code from '@/components/Code';
 
 const components = {
   pre: (preProps) => {

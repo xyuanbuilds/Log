@@ -1,7 +1,8 @@
 import React, { useLayoutEffect, useState, useEffect } from 'react';
 import dark from 'prism-react-renderer/themes/oceanicNext';
-// import light from 'prism-react-renderer/themes/github';
 
+// light theme https://github.com/atom/one-light-syntax
+// dark Theme https://github.com/atom/one-dark-syntax
 const THEME_MAP = {
   light: {
     plain: {

@@ -41,5 +41,22 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `Meditation`,
+    //     short_name: `M`,
+    //     start_url: `/`,
+    //     icon: `./src/assets/icons/index.png`,
+    //   },
+    // },
+    {
+      resolve: `gatsby-alias-imports`,
+      options: {
+        aliases: {
+          '@': require('path').resolve(__dirname, 'src'),
+        },
+      },
+    },
   ],
 };

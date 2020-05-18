@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-import Img from 'gatsby-image';
+// import Img from 'gatsby-image';
 
-const Index = () => {
+const Index = ({ location }) => {
+  console.log(location);
+  const previous = location?.state?.previous;
   const data = useStaticQuery(graphql`
     query {
       allMdx {
@@ -22,15 +24,6 @@ const Index = () => {
   `);
   return (
     <div>
-      {/* <img
-        // fixed={data.file.childImageSharp.fixed}
-        style={{
-          position: 'absolute',
-          zIndex: -1,
-        }}
-        src="salar-de-uyuni.jpeg"
-        // sizes={data.file.childImageSharp.fixed}
-      /> */}
       <ul>
         {data.allMdx.edges.map(({ node: page }) => {
           const { frontmatter, fields, id } = page;
@@ -41,13 +34,9 @@ const Index = () => {
           );
         })}
       </ul>
-      <Link to="/">back</Link>
+      {previous && <Link to={previous}>回去</Link>}
     </div>
   );
 };
-
-// export const pageQuery = graphql`
-
-// `;
 
 export default Index;

@@ -2,6 +2,10 @@
 /* hsl(147, 32%, 52%) */
 /* hsl(199, 65%, 60%) */
 
+/* hsl(342, 100%, 30%) costa*/
+/* hsl(153, 95%, 23%); Starbucks*/
+/* hsl(236, 71%, 34%) lukin*/
+
 /*系统深浅色匹配*/
 :root {
   /* --bg: hsl(60, 100%, 99%);
@@ -15,9 +19,11 @@
   --inlineCodeBg: hsla(41, 92%, 76%, 0.3);
   --inlineCodeColor: hsl(348, 71%, 69%); */
   --bg: hsl(60, 100%, 99%);
+  --bgDot: hsl(60, 0%, 87%); /* #ddd */
   --fontColor: hsla(0, 0%, 0%, 0.8);
   --hColor: hsla(0, 0%, 0%, 0.9);
-  --linkColor: hsl(9, 83%, 67%);
+  --main: hsl(9, 83%, 67%);
+  --linkColor: hsl(147, 32%, 52%);
   --bqBorder: hsla(228, 25%, 78%, 0.15);
   --bqColor: rgba(0, 0, 0, 0.6);
   --bqBg: hsl(90, 5%, 74%, 0.1);
@@ -39,10 +45,22 @@
 /* global */
 
 body {
+  min-height: 100vh;
+  min-width: 100vh;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg);
   color: var(--fontColor);
+  /* border-image: conic-gradient(
+      #3ebd3e 0,
+      #3ebd3e 30%,
+      #ff9800 30%,
+      #ff9800 70%,
+      #03a9f4 70%,
+      #03a9f4 100%
+    )
+    10; */
+  /* overflow-x: hidden; */
 }
 ::selection {
   background-color: hsl(9, 83%, 67%);

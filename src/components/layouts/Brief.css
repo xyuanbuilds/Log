@@ -1,0 +1,8 @@
+#m-brief {
+  display: flex;
+  justify-content: flex-end;
+}
+
+#m-brief img {
+  margin: 0;
+}

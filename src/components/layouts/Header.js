@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'gatsby';
-import { rhythm } from '../utils/typography';
-import './header.css';
+import { LocationProvider } from '@reach/router';
+import { rhythm } from '@/utils/typography';
+import './Header.css';
 
-const Header = () => {
+const Header = ({ location }) => {
+  const { pathname = '/' } = location;
   return (
     <header
       style={{
@@ -13,7 +15,9 @@ const Header = () => {
       id="m-header"
     >
       <div id="m-index">
-        <Link href="/">Meditation</Link>
+        <Link to="/" state={{ previous: pathname }}>
+          Meditation
+        </Link>
       </div>
       <nav>
         <ul>
@@ -35,4 +39,8 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default (props) => (
+  <LocationProvider>
+    {({ location }) => <Header {...props} location={location} />}
+  </LocationProvider>
+);

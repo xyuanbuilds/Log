@@ -44,11 +44,16 @@ Theme.overrideThemeStyles = ({ rhythm, scale }, options, styles) => ({
     backgroundImage: `linear-gradient(to top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0) 1px, var(--linkColor) 1px, var(--linkColor) 2px, rgba(0, 0, 0, 0) 2px)`,
   },
   blockquote: {
-    borderLeft: `${rhythm(4 / 16)} solid var(--bqBorder)`,
+    ...scale(-1 / 5),
+    borderLeft: `${rhythm(2 / 16)} solid var(--bqBorder)`,
     color: 'var(--bqColor)',
     background: 'var(--bqBg)',
     paddingTop: `${rhythm(4 / 16)}`,
+    paddingLeft: `${rhythm(4 / 16)}`,
     paddingBottom: `${rhythm(4 / 16)}`,
+  },
+  'blockquote cite': {
+    ...scale(-1 / 5),
   },
   '#m-header': {
     ...scale(-1 / 10),

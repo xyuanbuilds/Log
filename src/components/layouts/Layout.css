@@ -1,0 +1,10 @@
+.m-bg {
+  height: 100%;
+  width: 100%;
+  border: 10px solid transparent;
+  background-image: radial-gradient(var(--bgDot) 1px, transparent 0),
+    radial-gradient(var(--bgDot) 1px, transparent 0);
+  background-position: 0 0, 25px 25px;
+  background-attachment: fixed;
+  background-size: 50px 50px;
+}

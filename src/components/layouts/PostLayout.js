@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
-import Header from './header';
+import Header from './Header';
 import Brief from './Brief';
 // import { rhythm } from '../utils/typography';s
+import './PostLayout.css';
 
 const Layout = ({ aside, title, children }) => {
   useEffect(() => {

@@ -1,0 +1,28 @@
+.wrapper {
+  --p: 10px;
+  transition: color 0.2s ease-out 0s, background 0.2s ease-out 0s;
+  min-height: 100vh;
+  padding: var(--p);
+}
+.footer {
+  height: 100px;
+  background-color: var(--main);
+  margin: calc(-1 * var(--p));
+  overflow: hidden;
+  background-image: inherit;
+  position: relative;
+}
+/* .footer::after {
+  content: '';
+  transform: translate(-50%, 0);
+  z-index: 0;
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  width: 140%;
+  height: 100px;
+  border-radius: 50%;
+  background-color: var(--bg);
+  background-image: inherit;
+  transform: translate(-50%, 0);
+} */

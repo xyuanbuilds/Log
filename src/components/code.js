@@ -1,8 +1,8 @@
 import React from 'react';
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from 'react-live';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import useTheme from '../utils/useCodeTheme';
-import './code.css';
+import useTheme from '@/utils/useCodeTheme';
+import './Code.css';
 
 // import every component that needs to be available in Code blocks and add it to the scope
 import Button from './button';
