@@ -1,9 +1,7 @@
 import React from 'react';
 import { Link, graphql, useStaticQuery } from 'gatsby';
-// import Img from 'gatsby-image';
 
 const Index = ({ location }) => {
-  console.log(location);
   const previous = location?.state?.previous;
   const data = useStaticQuery(graphql`
     query {
